@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>React App</title>	
+<link rel = "icon" type = "image/png" href ="https://yt3.ggpht.com/a-/AAuE7mC2myblxeKtNnhghgSiZ7zNXA4n8J6pRqtYOg=s900-mo-c-c0xffffffff-rj-k-no"/>
+	<script type="text/javascript">
+
+function myFunction() {
+  document.getElementById("main").style.display = "none";
+  document.getElementById("part").style.display = "block";
+}
+
+function otherFunction() {
+  document.getElementById("main").style.display = "block";
+  document.getElementById("part").style.display = "none";
+}
+</script>
+<script type="text/javascript">
+		var i=0;
+		function create()
+		{
+			i++;var row = document.createElement("tr");
+	    var col1 = document.createElement("td");
+	    var col2 = document.createElement("td");
+	    var col3c = document.createElement("td");
+	    var col3 = document.createElement("button");
+	    row.appendChild(col1);
+	    row.appendChild(col2);
+	    row.appendChild(col3c);
+	    col3c.appendChild(col3);
+  var data1 = document.createTextNode(localStorage.getItem("name"));
+  var data2 = document.createTextNode(localStorage.getItem("phone"));
+  var data3 = document.createTextNode("DELETE");
+    col3c.setAttribute("class","content");
+    col2.setAttribute("class","content");
+    col1.setAttribute("class","content");
+    
+     row.setAttribute("id", "tdata"+i);
+     col3.setAttribute("id", "but"+i);
+     col3.setAttribute("value", ""+i);
+ //var x=document.getElementById("but"+i);
+  //x.style.backgroundColor="red";
+     col3.setAttribute("onclick","deleteIt(this)");
+  col1.appendChild(data1);
+  col2.appendChild(data2);
+  col3.appendChild(data3);
+  document.getElementById("main_table").appendChild(row);	
+		
+		}	
+		function deleteIt(i) {
+  var list = document.getElementById("tdata"+(i.value));
+  list.parentNode.removeChild(list);
+}	
+				
+		
+	</script>
+<script type="text/javascript">
+		function data()
+		{
+			var a=document.getElementById("i1").value;
+			var b=document.getElementById("i2").value;
+			localStorage.setItem("name",a);
+		    localStorage.setItem("phone",b);
+document.getElementById("main").style.display = "block";
+  document.getElementById("part").style.display = "none";
+  create();
+		}
+	</script>
+	<script type="text/javascript">
+    function print1()
+    {
+    	var x=document.getElementById("i1").value;
+    	document.getElementById("div1").innerHTML=x;
+    }
+    function print2()
+    {
+    	var x=document.getElementById("i2").value;
+    	document.getElementById("div2").innerHTML=x;
+    }
+	</script>
+	<style type="text/css">
+		
+		h1
+		{
+		 color:white;
+         background-color:black;
+         height:40px;
+         width:100%;
+         text-align:center;
+		}
+
+		button
+		{
+         color:white;
+         background-color:red;
+         height:30px;
+         width:70px;
+		}
+		#addButton
+		{
+         color:white;
+         background-color:green;
+         height:30px;
+         width:70px;
+		}
+		#backButton
+		{
+         color:white;
+         background-color:grey;
+         height:30px;
+         width:50px;
+		}
+		#extra
+		{
+		color:black;
+         height:70px;
+         width:700px; 
+         
+         font-size:20px;
+		}
+		.content1
+		{
+			color:black;
+         height:70px;
+         width:500px; 
+         text-align:center;
+         font-size:20px;
+		}
+		.content
+		{
+			color:#9b761a;
+         height:70px;
+         width:1550px; 
+         text-align:center;
+         font-size:25px;
+		}
+		body
+		{
+			background:linear-gradient(to right,white,skyblue);
+		}
+		.indata
+		{
+			color:black;
+         height:70px;
+         width:200px; 
+         text-align:center;
+         font-size:25px;	
+		}
+		input:focus {
+
+    background-color: yellow;
+
+}
+
+	</style>
+</head>
+<body>
+	<div id="main">
+<h1>PHONE DIRECTORY</h1>
+<button id="addButton"onclick="myFunction()">ADD</button>
+<table>
+	<tr >
+		<th class="content1">Name</th>
+         <th class="content1">Phone</th>
+         <th class="content1"></th>
+	</tr>
+	</table>
+	<table id="main_table" class="content">
+	</table>
+	
+	
+	</div>
+	<div id="part" style="display:none;">
+	<button id="backButton" onclick="otherFunction()">Back</button>
+	<table>
+		<tr>
+			<th class="indata">Name:</th>
+			<td class="indata"><input id="i1" type="text" oninput="print1()"/></td>
+		</tr>
+		<tr>
+			<th class="indata">Phone:</th>
+			<td class="indata"><input id="i2" type="number"oninput="print2()"/></td>
+		</tr>
+	</table>
+	<div id="extra">
+	<div style="color:blue;">Subscriber to be added:</div>
+	<table>
+		<tr>
+			<th>Name:</th>
+			<td><div id="div1">
+	</div></td>
+		</tr>
+<tr>
+			<th>phone:</th>
+			<td><div id="div2"></div></td>
+		</tr>
+	</table>
+
+	<button id="addButton" onclick="data()">ADD</button>
+</div>	
+</div>
+</body>
+</html>
